@@ -1,8 +1,7 @@
 import os
 from nltk import FreqDist
 import matplotlib.pyplot as plt
-import re
-from wordspace_data_processing import extract_vocab
+from wordspace_data_processing import extract_vocab, assert_gav_chinese
 
 
 def list_words_to_list_word_lengths(word_list):
@@ -47,17 +46,6 @@ def compare_spaces(directory_of_wordspaces):
         print(n_gram_length_data)
         data.append(titled_freq_dist)
     plot_freq_dists(data)
-
-
-def assert_chinese(string):
-    """Asserts the presence of a Chinese character in a string. Does not account for if there are other non-Chinese
-    characters present."""
-    return bool(re.search('[\u4e00-\u9fff]', string))
-
-
-def assert_gav_chinese(string):
-    """Checks in the string is Chinese formatted in Gavagai style (char-space-char). Rejects anything else."""
-    return bool(re.match('^[\u4e00-\u9fff]( [\u4e00-\u9fff])*$', string))
 
 
 def n_grams_in_vocabulary(directory_of_wordspaces):
