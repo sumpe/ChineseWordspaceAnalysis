@@ -16,6 +16,10 @@ def extract_vocab_from_directory(word_space_directory):
     return vocab
 
 
+def filter_ngrams_only(vocab_list):
+    return [word for word in vocab_list if len(word.split()) > 1]
+
+
 def assert_chinese(string):
     """Asserts the presence of a Chinese character in a string. Does not account for if there are other non-Chinese
     characters present."""
