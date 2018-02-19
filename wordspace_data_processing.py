@@ -12,7 +12,10 @@ def extract_vocab(csv_file):
 def extract_vocab_with_frequency(csv_file):
     with open(csv_file) as f:
         reader = csv.DictReader(f)
-        return [(row['entry'], row['frequency']) for row in reader]
+        data = {}
+        for row in reader:
+            data[row['entry']] = row['frequency']
+        return data
 
 
 def extract_vocab_from_directory(word_space_directory):
@@ -35,6 +38,10 @@ def assert_chinese(string):
 def assert_gav_chinese(string):
     """Checks in the string is Chinese formatted in Gavagai style (char-space-char). Rejects anything else."""
     return bool(re.match('^[\u4e00-\u9fff]( [\u4e00-\u9fff])*$', string))
+
+
+def get_list_intersection(list1, list2):
+    return [word for word in list1 if word in list2]
 
 
 def list_intersection_size(list1, list2):
