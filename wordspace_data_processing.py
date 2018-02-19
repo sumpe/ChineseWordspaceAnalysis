@@ -62,4 +62,4 @@ def list_intersection_size(list1, list2):
 
 
 def get_ngrams_of_given_length(vocab_list, size):
-    return [word for word in vocab_list if len(word.split()) == 2]
+    return [word for word in vocab_list if len(word.split()) == size]
