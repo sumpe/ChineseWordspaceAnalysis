@@ -25,6 +25,14 @@ def extract_vocab_from_directory(word_space_directory):
     return vocab
 
 
+def extract_vocab_from_directory_with_frequency(word_space_directory):
+    data = {}
+    for file in os.listdir(word_space_directory):
+        file_data = extract_vocab_with_frequency(word_space_directory + '/' + file)
+        data.update(file_data)
+    return data
+
+
 def filter_ngrams_only(vocab_list):
     return [word for word in vocab_list if len(word.split()) > 1]
 
@@ -54,4 +62,4 @@ def list_intersection_size(list1, list2):
 
 
 def get_ngrams_of_given_length(vocab_list, size):
-    return [word for word in vocab_list if word.split() == size]
+    return [word for word in vocab_list if len(word.split()) == 2]
