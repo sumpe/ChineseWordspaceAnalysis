@@ -12,7 +12,7 @@ def extract_vocab(csv_file):
 def extract_vocab_with_frequency(csv_file):
     with open(csv_file) as f:
         reader = csv.DictReader(f)
-        return [(row['entry'], row['frequency']) for row in reader]
+        return [(row['entry'], row['frequency']) for row in csv_file]
 
 
 def extract_vocab_from_directory(word_space_directory):
