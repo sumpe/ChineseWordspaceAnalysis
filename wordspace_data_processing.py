@@ -29,3 +29,12 @@ def assert_chinese(string):
 def assert_gav_chinese(string):
     """Checks in the string is Chinese formatted in Gavagai style (char-space-char). Rejects anything else."""
     return bool(re.match('^[\u4e00-\u9fff]( [\u4e00-\u9fff])*$', string))
+
+
+def list_intersection_size(list1, list2):
+    concatenation = list1 + list2
+    size_with_duplicates = len(concatenation)
+    concatenation = set(concatenation)
+    size_without_duplicates = len(concatenation)
+    intersection_size = size_with_duplicates - size_without_duplicates
+    return intersection_size
