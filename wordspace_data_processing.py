@@ -9,6 +9,12 @@ def extract_vocab(csv_file):
         return [row['entry'] for row in reader]
 
 
+def extract_vocab_with_frequency(csv_file):
+    with open(csv_file) as f:
+        reader = csv.DictReader(f)
+        return [(row['entry'], row['frequency']) for row in csv_file]
+
+
 def extract_vocab_from_directory(word_space_directory):
     vocab = []
     for file in os.listdir(word_space_directory):
@@ -38,3 +44,7 @@ def list_intersection_size(list1, list2):
     size_without_duplicates = len(concatenation)
     intersection_size = size_with_duplicates - size_without_duplicates
     return intersection_size
+
+
+def get_ngrams_of_given_length(vocab_list, size):
+    return [word for word in vocab_list if word.split() == size]
