@@ -18,7 +18,7 @@ def n_gram_length_freq_dist(word_space_directory):
     return (word_space_directory, sorted(length_freq_dist.most_common()))
 
 
-def plot_freq_dists(list_of_sorted_freq_dists):
+def plot_freq_dists(list_of_sorted_freq_dists, min=1):
     total = len(list_of_sorted_freq_dists)
     shift = 1/total
     width = 0.8 * shift
@@ -29,8 +29,8 @@ def plot_freq_dists(list_of_sorted_freq_dists):
     plt.ylabel('Occurrence')
     labels = []
     for title, freq_dist in list_of_sorted_freq_dists:
-        grams = [gram + shift * count - 0.5 * shift for gram, _ in freq_dist][4:]
-        bars = [occurrence for _, occurrence in freq_dist][4:]
+        grams = [gram + shift * count - 0.5 * shift for gram, _ in freq_dist][min-1:]
+        bars = [occurrence for _, occurrence in freq_dist][min-1:]
         plt.bar(grams, bars, width=width)
         labels.append(title)
         count += 1
@@ -58,6 +58,6 @@ def n_grams_in_vocabulary(directory_of_wordspaces):
 
 # for term in extract_vocab('wordspaces/2017-12-12/redis-keys-zh-prod-1.csv'):
 #     print(assert_gav_chinese(term), term, len(term), term.split(), len(term.split()))
-# compare_spaces('top20wordspaces')
+compare_spaces('lexicon')
 
-n_grams_in_vocabulary('wordspaces')
+# n_grams_in_vocabulary('wordspaces')
