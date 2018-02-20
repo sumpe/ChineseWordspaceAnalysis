@@ -15,5 +15,5 @@ def measure_non_chinese_vocab_items(wordspace):
 
 measure_non_chinese_vocab_items('wordspaces/2017-12-12')
 measure_non_chinese_vocab_items('wordspaces/2018-02-14')
-measure_non_chinese_vocab_items('top20wordspaces/2017-12-12')
-measure_non_chinese_vocab_items('top20wordspaces/2018-02-14')
+measure_non_chinese_vocab_items('lexicon/2017-12-12')
+measure_non_chinese_vocab_items('lexicon/2018-02-14')

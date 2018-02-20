@@ -20,7 +20,7 @@ def compare_bad_space_with_good_space(good_space, bad_space):
 
 
 start = time()
-compare_bad_space_with_good_space('top20wordspaces/2017-12-12', 'top20wordspaces/2018-02-14')
+compare_bad_space_with_good_space('lexicon/2017-12-12', 'lexicon/2018-02-14')
 end = time()
 
 print(end-start)
