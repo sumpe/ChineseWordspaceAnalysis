@@ -9,6 +9,7 @@ def compare_bad_space_with_good_space(good_space, bad_space):
     overlapping = list_intersection_size(good_vocabulary, bad_vocabulary)
     new_words = [word for word in bad_vocabulary if word not in good_vocabulary]
     dropped_out_words = [word for word in good_vocabulary if word not in bad_vocabulary]
+    print(len(dropped_out_words))
     print('start to count')
     count = 0
     for dropped_word in dropped_out_words:
@@ -17,7 +18,7 @@ def compare_bad_space_with_good_space(good_space, bad_space):
                 count += 1
                 break
     print(overlapping, overlapping/total)
-    print(count, count/total)
+    print(count, count/len(dropped_out_words))
 
 
 start = time()
